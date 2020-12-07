@@ -14,6 +14,15 @@
   <sql id="Base_Column_List">
     id, userID, userName, passWord, regDate, nickName, phoneNum, eMail
   </sql>
+
+
+  <select id="getUserInfo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from userInfo
+  </select>
+
+
   <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
