@@ -16,7 +16,6 @@ public class UserInfoServiceImpl implements UserInfoService {
      * @return userInfoMapper.getUserInfo();
      */
     @Override
-
     public List<UserInfo> getUserInfo() {
         return userInfoMapper.getUserInfo();
     }
