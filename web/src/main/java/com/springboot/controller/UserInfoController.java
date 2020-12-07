@@ -1,11 +1,17 @@
 package com.springboot.controller;
 
+import com.springboot.entity.UserInfo;
 import com.springboot.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+import java.util.List;
+
+@Controller
+@RequestMapping("/userInfo")
 public class UserInfoController {
     @Autowired
     private UserInfoService userInfoService;
@@ -14,8 +20,16 @@ public class UserInfoController {
      * 获取用户信息
      * @return
      */
-    @GetMapping("/")
-    public Object getUserInfo() {
-        return userInfoService.getUserInfo();
+    @ResponseBody
+    @GetMapping("/json")
+    public List<UserInfo> getUserInfo() {
+        List<UserInfo> list = userInfoService.getUserInfo();
+        return list;
+    }
+
+    @GetMapping("/page")
+    public String reUserInfo() {
+        List<UserInfo> list = userInfoService.getUserInfo();
+        return "home";
     }
 }
