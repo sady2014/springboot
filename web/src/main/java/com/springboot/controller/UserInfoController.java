@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * @author Administrator
+ * @Date 2020年12月8日 10:24:55
+ */
 @Controller
 @RequestMapping("/userInfo")
 public class UserInfoController {
