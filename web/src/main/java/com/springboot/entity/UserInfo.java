@@ -1,22 +1,34 @@
 package com.springboot.entity;
 
-import java.util.Date;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.util.Date;
+@ApiModel("用户实体")
 public class UserInfo {
+
+    @ApiModelProperty("系统 id")
     private Integer id;
 
+    @ApiModelProperty("用户 id")
     private Integer userid;
 
+    @ApiModelProperty("用户 名")
     private String username;
 
+    @ApiModelProperty("用户 密码")
     private String password;
 
+    @ApiModelProperty("注册日期")
     private Date regdate;
 
+    @ApiModelProperty("用户 昵称")
     private String nickname;
 
+    @ApiModelProperty("用户 手机号")
     private Integer phonenum;
 
+    @ApiModelProperty("用户 邮件")
     private String email;
 
     public Integer getId() {
