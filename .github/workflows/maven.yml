@@ -32,8 +32,8 @@ jobs:
         username: root
         password: ${{ secrets.PASSWORD }}
         port: 28188
-        source: "/*.*,/root/"
-        target: "test"
+        source: "/home/runner/work/springboot/springboot/web/target/"
+        target: "target"
 
 
 
