@@ -29,5 +29,5 @@ jobs:
         exclude: .cache,test
         dist: public
       env:
-        UPTOC_UPLOADER_AK: ${{ secrets.UPTOC_UPLOADER_KEYID }}
-        UPTOC_UPLOADER_SK: ${{ secrets.UPTOC_UPLOADER_KEYSECRET }}
+        UPTOC_UPLOADER_AK: ${{ secrets.AK }}
+        UPTOC_UPLOADER_SK: ${{ secrets.SK }}
