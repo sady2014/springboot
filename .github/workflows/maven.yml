@@ -34,9 +34,6 @@ jobs:
         port: 28188
         source: "/*.*,/root/"
         target: "test"
-        
-  编译和部署到远程1:
-    runs-on: ubuntu-latest
 
 
 
