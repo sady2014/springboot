@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.mapper.UserinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.springboot.entity.Userinfo">
+        <id column="id" property="id" />
+        <result column="userID" property="userid" />
+        <result column="userName" property="username" />
+        <result column="passWord" property="password" />
+        <result column="regDate" property="regdate" />
+        <result column="nickName" property="nickname" />
+        <result column="phoneNum" property="phonenum" />
+        <result column="eMail" property="email" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, userID, userName, passWord, regDate, nickName, phoneNum, eMail
+    </sql>
+
+</mapper>
