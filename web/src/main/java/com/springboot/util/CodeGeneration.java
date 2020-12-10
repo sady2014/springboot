@@ -28,21 +28,20 @@ public class CodeGeneration{
         System.out.println(projectPath);
         //输出路径
         gc.setOutputDir(projectPath + "/web/src/main/java");
-        gc.setAuthor("Mugua");    //设置作者
+        //设置作者
+        gc.setAuthor("Mugua");
         //生成代码后，是否打开文件夹
         gc.setOpen(false);
         gc.setBaseResultMap(true);
         gc.setBaseColumnList(true);
-        gc.setFileOverride(false);  //是否覆盖原来代码，个人建议设置为false,别覆盖，危险系数太高
-        gc.setServiceName("%sService");   //去掉service的I前缀,一般只需要设置service就行
-
-/*        gc.setMapperName("%sMapper");
-        gc.setXmlName("%sMapper");
-        gc.setServiceImplName("%sServiceImpl");
-        gc.setControllerName("%sController");*/
-
-        gc.setDateType(DateType.ONLY_DATE);   //日期格式
-        gc.setSwagger2(true);       // 实体属性 Swagger2 注解,实体类上会增加注释
+        //是否覆盖原来代码，个人建议设置为false,别覆盖，危险系数太高
+        gc.setFileOverride(false);
+        //去掉service的I前缀,一般只需要设置service就行
+        gc.setServiceName("%sService");
+        //日期格式
+        gc.setDateType(DateType.ONLY_DATE);
+        // 实体属性 Swagger2 注解,实体类上会增加注释
+        gc.setSwagger2(true);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -52,12 +51,15 @@ public class CodeGeneration{
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
-        dsc.setDbType(DbType.MYSQL);    //指定数据库的类型
+        //指定数据库的类型
+        dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.springboot");   //自定义包的路径
-        //pc.setModuleName("module");   //模块名称  设置后,会生成com.cxyxs.test.module,里面存放之前设置的mapper,entity
+        //自定义包的路径
+        pc.setParent("com.springboot");
+        //模块名称  设置后,会生成com.cxyxs.test.module,里面存放之前设置的mapper,entity
+        //pc.setModuleName("module");
         pc.setEntity("entity");
         pc.setMapper("mapper");
         pc.setService("service");
@@ -65,7 +67,8 @@ public class CodeGeneration{
         mpg.setPackageInfo(pc);
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setInclude("userInfo");    //设置映射的表名，可以设置多个表
+        //设置映射的表名，可以设置多个表
+        strategy.setInclude("userInfo");
 
         //表前缀设置  cxyxs_student
         //strategy.setTablePrefix(new String[]{"cxyxs_"});
@@ -77,7 +80,8 @@ public class CodeGeneration{
         strategy.setEntityLombokModel(true);
         //驼峰命名
         strategy.setRestControllerStyle(true);
-        strategy.setLogicDeleteFieldName("is_delete");   //逻辑删除,假删除会用到
+        //逻辑删除,假删除会用到
+        strategy.setLogicDeleteFieldName("is_delete");
         //自定义配置
         InjectionConfig cfg = new InjectionConfig() {
             @Override
@@ -114,7 +118,7 @@ public class CodeGeneration{
         //乐观锁
         //strategy.setVersionFieldName("version");
         mpg.setStrategy(strategy);
-
-        mpg.execute();  //执行
+//执行
+        mpg.execute();
     }
 }

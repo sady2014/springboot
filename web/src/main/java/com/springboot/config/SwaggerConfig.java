@@ -12,7 +12,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 
-//@Configuration 是告诉 Spring Boot 需要加载这个配置类， @EnableSwagger2 是启用 Swagger2，如果没加的话自然而然也就看不到后面的验证效果了。
+/**
+ * @author Mugua
+ * @Configuration 告诉 Spring Boot 需要加载这个配置类
+ * @EnableSwagger2 是启用 Swagger2
+ */
+
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
