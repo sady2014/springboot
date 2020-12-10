@@ -20,6 +20,7 @@ jobs:
         java-version: 1.8
     - name: 使用Maven编译
       run: mvn -B package --file web/pom.xml
+
     - name: Deploy
       uses: saltbo/uptoc@master
       with:
