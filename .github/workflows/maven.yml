@@ -8,27 +8,34 @@ on:
     branches: master
     
 jobs:
-  build:
-
+  编译和部署到远程:
     runs-on: ubuntu-latest
-
     steps:
+    - name: 检出最新代码
     - uses: actions/checkout@v2
     - name: 设置JDK 1.8
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    
+      #通过ssh上传文件工具
+    - name: 安装sshpass
+      run: sudo apt-get install sshpass
+      
     - name: 使用Maven编译
       run: mvn -B package --file web/pom.xml
-
-    - name: Deploy
-      uses: saltbo/uptoc@master
+      
+    - name: SCP Files
+      uses: appleboy/scp-action@master
       with:
-        driver: qiniu
-        region: cn-east-1
-        bucket: warlue
-        exclude: .cache,test
-        dist: public
-      env:
-        UPTOC_UPLOADER_AK: ${{ secrets.AK }}
-        UPTOC_UPLOADER_SK: ${{ secrets.SK }}
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: "/*.*,/root/"
+        target: "test"
+  编译和部署到远程1:
+    runs-on: ubuntu-latest
+
+
+
