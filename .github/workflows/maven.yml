@@ -5,8 +5,9 @@ name: 持续集成测试项目
 
 on:
   push:
-    branches: master
-    
+    tags:
+      - 'v*.*.*'
+
 jobs:
   build:
     runs-on: ubuntu-latest
