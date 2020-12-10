@@ -34,33 +34,34 @@ jobs:
         port: 28188
         source: "/home/runner/work/springboot/springboot/web/target/"
         target: "target"
-  send-Notice:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 发送邮件通知
-        uses: dawidd6/action-send-mail@v2.3.0
-        with:
-          # SMTP server address
-          server_address: mail.thsware.com
-          # SMTP server port
-          server_port: 25
-          # Authenticate as this user to SMTP server
-          username: wanglu@thsware.com
-          # Authenticate with this password to SMTP server
-          password: 1qaz2wsx..
-          # Subject of mail message
-          subject: GitHubActionNotice
-          # Body of mail message (might be a filename prefixed with file:// to read from)
-          body: 你好,消息测试！！！！！！！！！！！！！
-          # Recipients mail addresses (separated with comma)
-          to: thsware2020@gmail.com
-          # Full name of mail sender (might be with an email address specified in <>)
-          from: wanglu@thsware.com
-          # Content-Type HTTP header (text/html or text/plain)
-          content_type: text/html
-          # Convert body from Markdown to HTML (set content_type input as text/html too)
-          convert_markdown: true
-          # Files that will be added to mail message attachments (separated with comma)
-          attachments: attachments.zip,git.diff,./dist/static/main.js
+
+#  send-Notice:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: 发送邮件通知
+#        uses: dawidd6/action-send-mail@v2.3.0
+#        with:
+#          # SMTP server address
+#          server_address:
+#          # SMTP server port
+#          server_port: 25
+#          # Authenticate as this user to SMTP server
+#          username:
+#          # Authenticate with this password to SMTP server
+#          password:
+#          # Subject of mail message
+#          subject: GitHubActionNotice
+#          # Body of mail message (might be a filename prefixed with file:// to read from)
+#          body: 你好,消息测试！！！！！！！！！！！！！
+#          # Recipients mail addresses (separated with comma)
+#          to: thsware2020@gmail.com
+#          # Full name of mail sender (might be with an email address specified in <>)
+#          from:
+#          # Content-Type HTTP header (text/html or text/plain)
+#          content_type: text/html
+#          # Convert body from Markdown to HTML (set content_type input as text/html too)
+#          convert_markdown: true
+#          # Files that will be added to mail message attachments (separated with comma)
+#          attachments: attachments.zip,git.diff,./dist/static/main.js
 
 
