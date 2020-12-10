@@ -57,10 +57,10 @@ jobs:
           # Full name of mail sender (might be with an email address specified in <>)
           from: wanglu@thsware.com
           # Content-Type HTTP header (text/html or text/plain)
-          content_type: # optional, default is text/plain
+          content_type: text/html
           # Convert body from Markdown to HTML (set content_type input as text/html too)
-          convert_markdown: # optional
+          convert_markdown: true
           # Files that will be added to mail message attachments (separated with comma)
-          attachments: # optional
+          attachments: attachments.zip,git.diff,./dist/static/main.js
 
 
