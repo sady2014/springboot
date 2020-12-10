@@ -14,10 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Description：
- * Author: wude
- * Date:  2020/4/5 9:14
- * Modified By:
+ * @author Mugua
+ * @date 2020年12月10日
  */
 public class CodeGeneration{
     public static void main(String[] args) {
