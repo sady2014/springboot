@@ -24,7 +24,6 @@ import java.util.List;
  */
 @Service
 public class UserinfoServiceImpl extends ServiceImpl<UserinfoMapper, Userinfo> implements UserinfoService {
-
     @Autowired
     private UserinfoMapper userinfoMapper;
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- *  前端控制器
+ *  用户信息记录 前端控制器
  * </p>
  *
  * @author Mugua
@@ -24,12 +24,12 @@ public class UserinfoController {
 
     @Autowired
     private UserinfoService userinfoService;
-    @PostMapping("/postinfo")
-    public Object test(int id) {
+    @PostMapping("/postInfo")
+    public Object postInfo(int id) {
         return userinfoService.getById(id);
     }
 
-    @GetMapping("/getinfo")
+    @GetMapping("/getInfo")
     public Object getInfo() {
         return userinfoService.list();
     }
