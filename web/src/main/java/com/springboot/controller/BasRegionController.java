@@ -42,13 +42,12 @@ public class BasRegionController {
      * @return
      */
 
+
     @GetMapping("/getRegionByName")
     public List getRegionByName(String regionName) {
         QueryWrapper<BasRegion> queryWrapper = new QueryWrapper<>();
         System.out.printf(regionName);
         queryWrapper.eq("RegionName",regionName);
-        System.out.println("====================================");
-        System.out.println("开始" + iBasRegionService.list()+"结束");
         return iBasRegionService.list(queryWrapper);
     }
 
