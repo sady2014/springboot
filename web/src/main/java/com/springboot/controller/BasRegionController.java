@@ -46,6 +46,7 @@ public class BasRegionController {
 
     @GetMapping("/getRegionByName")
     public List getRegionByName(String regionName) {
+//        QueryWrapper
         QueryWrapper<BasRegion> queryWrapper = new QueryWrapper<>();
         System.out.printf(regionName);
         queryWrapper.eq("RegionName",regionName);
