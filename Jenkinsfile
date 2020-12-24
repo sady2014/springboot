@@ -1,9 +1,15 @@
+//c00ea581a9f839ca76788d0aaee23024b3cefb5c
+
 pipeline {
   agent any
+  tools {
+    maven 'M3'
+  }
   stages {
-    stage('') {
+    stage('build') {
       steps {
-        sleep 11
+        echo 'Start'
+        sh 'mvn -B package --file web/pom.xml'
       }
     }
 
