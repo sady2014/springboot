@@ -5,6 +5,7 @@ import com.springboot.entity.BasProductusedata;
 import com.springboot.mapper.BasProductusedataMapper;
 import com.springboot.service.IBasProductusedataService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.springboot.util.LayuiTypeJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class BasProductusedataServiceImpl extends ServiceImpl<BasProductusedataM
     @Autowired
     private BasProductusedataMapper basProductusedataMapper;
     public List<BasProductusedata> getInfo(BasProductusedata basProductusedata) {
+        System.out.println(basProductusedata.getKeySN());
         QueryWrapper<BasProductusedata> queryWrapper=new QueryWrapper<>();
         queryWrapper.select("id", "ProductName", "RegionId", "RegionName", "KeySerial", "KeySN","Version",
                 "InnerVersion","IP","KeySNType","LoginName","OSVersion","LastOut","LoginDateLocal","LoginDateServer","Province",

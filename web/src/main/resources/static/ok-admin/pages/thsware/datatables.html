@@ -17,12 +17,12 @@
 	<!--模糊搜索区域-->
 	<div class="layui-row">
 		<form class="layui-form layui-col-md12 ok-search">
-			<input class="layui-input" placeholder="开始日期" autocomplete="off" id="startTime" name="startTime">
-			<input class="layui-input" placeholder="截止日期" autocomplete="off" id="endTime" name="endTime">
-			<input class="layui-input" placeholder="账号" autocomplete="off" name="username">
-			<input class="layui-input" placeholder="账号" autocomplete="off" name="username1">
-			<input class="layui-input" placeholder="账号" autocomplete="off" name="username2">
-			<input class="layui-input" placeholder="账号" autocomplete="off" name="username3">
+			<input class="layui-input" placeholder="锁号" autocomplete="off" name="KeySN">
+			<input class="layui-input" placeholder="账号2" autocomplete="off" name="username1">
+			<input class="layui-input" placeholder="开始" autocomplete="off" id="startTime" name="startTime">
+			<input class="layui-input" placeholder="截止" autocomplete="off" id="endTime" name="endTime">
+			<input class="layui-input" placeholder="账号3" autocomplete="off" name="username2">
+			<input class="layui-input" placeholder="账号4" autocomplete="off" name="username3">
 			<button class="layui-btn" lay-submit="" lay-filter="search">
 				<i class="layui-icon">&#xe615;</i>
 			</button>
@@ -74,28 +74,43 @@
 			}
 		}
 
-		$("#userTable").DataTable({
-			ajax: {
-				url: okMock.api.datatables,
-				type: "get",
-			},
-			columns: [
-				{data: "id", title: "ID"},
-				{data: "username", title: "账号"},
-				{data: "password", title: "密码"},
-				{data: "nickname", title: "昵称"},
-				{data: "name", title: "姓名"},
-				{data: "role", title: "角色"},
-				{data: "status", title: "状态"},
-				{data: "email", title: "邮箱"},
-				{data: "phone", title: "手机"},
-				{data: "createTime", title: "创建时间"},
-				{data: "updateTime", title: "更新时间"},
-			]
-		});
+		// $("#userTable").DataTable({
+		// 	ajax: {
+		// 		url: okMock.api.datatables,
+		// 		type: "post",
+		// 	},
+		// 	columns: [
+		// 		{data: "id", title: "ID"},
+		// 		{data: "username", title: "账号"},
+		// 		{data: "password", title: "密码"},
+		// 		{data: "nickname", title: "昵称"},
+		// 		{data: "name", title: "姓名"},
+		// 		{data: "role", title: "角色"},
+		// 		{data: "status", title: "状态"},
+		// 		{data: "email", title: "邮箱"},
+		// 		{data: "phone", title: "手机"},
+		// 		{data: "createTime", title: "创建时间"},
+		// 		{data: "updateTime", title: "更新时间"},
+		// 	]
+		// });
 
-		form.on("submit(search)", function (data) {
-			return false;
+		form.on("submit(search)", function () {
+				$("#userTable").DataTable({
+					ajax: {
+						url: "http://localhost:8080/bas-productusedata/getInfo?KeySN=B12146",
+						type: "post",
+					},
+					columns: [
+						{data: "id", title: "ID"},
+						{data: "ip", title: "IP"},
+						{data: "keySN", title: "锁号"},
+						{data: "keySNType", title: "类型"},
+						{data: "productName", title: "产品名"},
+						{data: "regionName", title: "版本"},
+						{data: "province", title: "省份"},
+						{data: "keySerial", title: "序列号"}
+					]
+				});
 		});
 	});
 </script>
