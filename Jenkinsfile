@@ -6,13 +6,17 @@ pipeline {
         sh 'mvn -B package --file web/pom.xml'
       }
     }
-    post {
-       always {         
-           pushplus (
-               "你的群组编码"
-           )            
-       }
-   }
+    stage('post') {
+      steps {
+        post {
+          always {
+            pushplus {
+              "001"
+            }
+          }
+        }
+      }
+    }
   }
   tools {
     maven 'M3'
