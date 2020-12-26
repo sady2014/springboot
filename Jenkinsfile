@@ -8,12 +8,8 @@ pipeline {
     }
     stage('post') {
       steps {
-        post {
-          always {
-            pushplus {
-              "001"
-            }
-          }
+        pushplus {
+          "001"
         }
       }
     }
