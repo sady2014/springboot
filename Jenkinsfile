@@ -7,6 +7,12 @@ pipeline {
       }
     }
 
+    stage('copy') {
+      steps {
+        sh 'cp -r ./ ~/java_repo'
+      }
+    }
+
   }
   tools {
     maven 'M3'
