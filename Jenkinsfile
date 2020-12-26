@@ -11,10 +11,6 @@ pipeline {
         echo 'Start'
         sh 'mvn -B package --file web/pom.xml'
       }
-      steps {
-        echo 'Start'
-        sh 'mvn -B package --file web/pom.xml'
-      }
     }
 
   }
