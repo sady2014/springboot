@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.mapper.BasProductMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.springboot.entity.BasProduct">
+        <id column="Id" property="Id" />
+        <result column="ProductResource" property="ProductResource" />
+        <result column="ProductId" property="ProductId" />
+        <result column="ProductCode" property="ProductCode" />
+        <result column="ProductName" property="ProductName" />
+        <result column="VersionCode" property="VersionCode" />
+        <result column="Remark" property="Remark" />
+        <result column="IsDel" property="IsDel" />
+        <result column="Creator" property="Creator" />
+        <result column="CreationTime" property="CreationTime" />
+        <result column="Modifier" property="Modifier" />
+        <result column="ModifiedTime" property="ModifiedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Id, ProductResource, ProductId, ProductCode, ProductName, VersionCode, Remark, IsDel, Creator, CreationTime, Modifier, ModifiedTime
+    </sql>
+
+</mapper>

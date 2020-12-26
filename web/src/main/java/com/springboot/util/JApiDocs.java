@@ -3,6 +3,8 @@ package com.springboot.util;
 import io.github.yedaxia.apidocs.Docs;
 import io.github.yedaxia.apidocs.DocsConfig;
 
+import java.io.File;
+
 public class JApiDocs {
     public static void main(String[] args) {
         DocsConfig config = new DocsConfig();
