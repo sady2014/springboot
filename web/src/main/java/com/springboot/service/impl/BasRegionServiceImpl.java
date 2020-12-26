@@ -34,8 +34,8 @@ public class BasRegionServiceImpl extends ServiceImpl<BasRegionMapper, BasRegion
     public List getInfo(BasRegion basRegion) {
         System.out.println(basRegion.getRegionId());
         QueryWrapper<BasRegion> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("id", "RegionName", "RegionID");
         queryWrapper.like("RegionID", basRegion.getRegionId());
-        queryWrapper.eq("RegionName", basRegion.getRegionName());
         List<BasRegion> list = basRegionMapper.selectList(queryWrapper);
         return list;
     }
