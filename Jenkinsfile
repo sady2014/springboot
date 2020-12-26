@@ -7,6 +7,13 @@ pipeline {
       }
     }
   }
+  post {
+       always {         
+           pushplus (
+               "001"
+           )            
+       }
+   }
   tools {
     maven 'M3'
   }
