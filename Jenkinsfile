@@ -7,9 +7,17 @@ pipeline {
       }
     }
 
+    
+
     stage('copy') {
       steps {
-        sh 'cp -r ./ ~/java_repo'
+            post {
+             always {         
+                 pushplus (
+                     "你的群组编码"
+                 )            
+             }
+         }
       }
     }
 
