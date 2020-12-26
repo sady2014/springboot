@@ -3,6 +3,7 @@ package com.springboot.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.springboot.entity.BasRegion;
+import com.springboot.mapper.BasRegionMapper;
 import com.springboot.service.IBasRegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,10 @@ public class BasRegionController {
     @Autowired
     private IBasRegionService iBasRegionService;
 
+    @Autowired
+    private BasRegionMapper basRegionMapper;
+
+
     /**
      * 返回所有的地区信息
      *
@@ -36,22 +41,23 @@ public class BasRegionController {
         return iBasRegionService.list();
     }
 
-    /**
-     * 根据id 显示信息
-     * @param regionName
-     * @return
-     * @date 2020年12月21日
-     */
-
-
     @GetMapping("/getRegionByName")
     public List getRegionByName(String regionName) {
-//        QueryWrapper
-//就是标签测试
         QueryWrapper<BasRegion> queryWrapper = new QueryWrapper<>();
         System.out.printf(regionName);
-        queryWrapper.eq("RegionName",regionName);
+        queryWrapper.eq("RegionName", regionName);
         return iBasRegionService.list(queryWrapper);
     }
 
+    /**
+     * <p>
+     *     通过字段获取信息
+     * </p>
+     * @param basRegion
+     * @return
+     */
+    @PostMapping("/getInfo")
+    public List<BasRegion> getInfo(BasRegion basRegion) {
+        return iBasRegionService.getInfo(basRegion);
+    }
 }

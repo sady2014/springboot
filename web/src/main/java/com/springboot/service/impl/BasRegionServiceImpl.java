@@ -1,10 +1,14 @@
 package com.springboot.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.springboot.entity.BasRegion;
 import com.springboot.mapper.BasRegionMapper;
 import com.springboot.service.IBasRegionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,5 +20,23 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BasRegionServiceImpl extends ServiceImpl<BasRegionMapper, BasRegion> implements IBasRegionService {
+    @Autowired
+    private BasRegionMapper basRegionMapper;
 
+    /**
+     * <p>
+     *
+     * </p>
+     * @param basRegion
+     * @return
+     */
+    @Override
+    public List getInfo(BasRegion basRegion) {
+        System.out.println(basRegion.getRegionId());
+        QueryWrapper<BasRegion> queryWrapper = new QueryWrapper<>();
+        queryWrapper.like("RegionID", basRegion.getRegionId());
+        queryWrapper.eq("RegionName", basRegion.getRegionName());
+        List<BasRegion> list = basRegionMapper.selectList(queryWrapper);
+        return list;
+    }
 }
